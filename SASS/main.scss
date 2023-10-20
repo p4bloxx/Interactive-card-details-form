@@ -1,0 +1,343 @@
+@use 'variables' as *;
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-section{
+  height: 15rem;
+  background: url('../ASSETS/bg-main-mobile.png') no-repeat;
+  background-size: cover;
+  position: relative;
+    .card{
+      width: 17.8125rem;
+      height: 9.8125rem;
+      position: absolute;
+      border-radius: 6px;
+    }
+
+    .front{
+      background: url('../ASSETS/bg-card-front.png') no-repeat;
+      background-size: cover;
+      z-index: 2;
+      top: 7.875rem;
+      left: 1rem;
+      padding: 1.125rem 1.25rem 1.25rem 1.125rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      filter: drop-shadow(0px 39px 60px rgba(0, 0, 0, 0.14));
+
+        & img{
+          width: 3.375rem;
+        }
+        .box-numbers{
+          margin-block: auto 1rem;
+          font-size: $fs-18;
+          color: $white;
+          letter-spacing: 2.2px;
+        }
+
+        .box-name-date{
+          display: flex;
+          justify-content: space-between;
+          color: $white;
+            .card-name,
+            .card-date{
+              font-size: $fs-9;
+              letter-spacing: 1.286px;
+            }
+        }
+    }
+
+    .back{
+      background: url('../ASSETS/bg-card-back.png') no-repeat;
+      background-size: cover;
+      top: 2.875em;
+      right: 1rem;
+      display: grid;
+      align-items: center;
+      justify-content: end;
+      padding-inline-end: 2.3125rem;
+      color: $white;
+      font-size: $fs-9;
+    }
+}
+
+.form-section{
+  width: 100%;
+  height: 100%;
+  padding-block: 7.1875rem 2.8125rem;
+  padding-inline: 1.5rem;
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-block-end: $fs-28;
+     /*  display: none; */
+
+        .err{
+          display: block;
+          font-size: $fs-12;
+          color: $red-err;
+          letter-spacing: initial;
+        }
+
+        label{
+          font-size: $fs-12;
+          color: $violet;
+          letter-spacing: 2px;
+        }
+
+        ::placeholder{
+          font-size: $fs-18;
+          color: $very-graysh-violet;
+        }
+
+        input{
+          height: 2.8125rem;
+          border-radius: 8px;
+          border: 1px solid $grey;
+          padding-block: 0.6875rem;
+          padding-inline-start: 1rem;
+          width: 100%;
+          margin-block-start: $fs-9;
+          transition: all 0.3s linear;
+          position: relative;
+          display: inline-block;
+          margin-block-end: 8px;
+            &:focus,
+            &:focus-visible{
+              border: 1px solid #6448fe;
+            }
+        }
+
+        .date-cvc{
+          display: flex;
+          gap: 11px;
+            .month-year{
+              display: flex;
+              gap: 7px;
+              justify-content: center;
+              align-items: center;
+              position: relative;
+                .err{
+                  position: absolute;
+                  bottom: -15px;
+                  left: 0;
+                }
+            }
+        }
+    }
+
+    .confirm-box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.1875rem;
+      transition: all 0.3s linear;
+      margin-block-end: 3rem;
+      display: none;
+        & img{
+          width: 5rem;
+          height: 5rem;
+        }
+        .confirm-text{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1rem;
+            h2{
+              font-size: $fs-28;
+              color: $violet;
+            }
+            p{
+              font-size: $fs-18;
+              color: $graysh-violet;
+            }
+        }
+    }
+
+    button{
+      background-color: $violet;
+      border-radius: 8px;
+      padding-block: 1rem;
+      color: $white;
+      width: 100%;
+      font-size: $fs-18;
+    }
+}
+
+@media screen and (min-width: 48rem) {
+  .card-section{
+    height: 40vh;
+    background: url('../ASSETS/bg-main-desktop.png') no-repeat;
+    background-size: cover;
+      .card{
+        width: 21.5625rem;
+        height: 13.5625rem;
+      }
+  
+      .front{
+        top: calc(15rem + 5vh);
+        left: calc(2rem + 3vw);
+        background-position: center center;
+        .box-name-date{
+            .card-name,
+            .card-date{
+              font-size: $fs-12;
+            }
+        }
+      }
+  
+      .back{
+        top: 2.875em;
+        right: calc(2rem + 3vw);
+        font-size: $fs-12;
+        padding-inline-end: 1rem;
+        background-position: center center;
+      }
+  }
+
+  .form-section{
+    padding-block: 10rem 2.8125rem;
+    padding-inline: 5rem;
+      .form-box{
+        width: 100%;
+        form{
+          margin-block-end: 2.5rem;
+          .date-cvc{
+            gap: $fs-18;
+          }
+        }
+      }
+  }
+}
+
+@media screen and (min-width: 62.375rem) {
+  .card-section{
+    .card{
+      width: 27.9375rem;
+      height: 15.3125rem;
+    }
+    .front{
+      padding: $fs-28 2rem 1.65625rem 2rem;
+      top: calc(15rem + 10vh);
+      left: calc(2rem + 5vw);
+        & img{
+          width: 5.25rem;
+        }
+        .box-numbers{
+          font-size: $fs-28;
+          margin-block-end: 1.56rem;
+        }
+
+        .box-name-date{
+            .card-name,
+            .card-date{
+              font-size: $fs-14;
+              letter-spacing: 1.286px;
+            }
+        }
+    }
+
+    .back{
+      padding-inline-end: 3.5625rem;
+      font-size: $fs-14;
+      top: calc(2.875em + 2vh);
+      right: calc(2rem + 5vw);
+    }
+  }
+
+  .form-section{
+    padding-block: 12rem 2.8125rem;
+    padding-inline: 8rem;
+      .form-box{
+        width: 100%;
+        form{
+          margin-block-end: 2.5rem;
+          gap: 1.625rem;
+          
+          .date-cvc{
+            gap: $fs-28;
+            justify-content: space-between;
+              .month-year{
+                gap: $fs-18;
+              }
+          }
+        }
+      }
+
+      button{
+        font-size: $fs-18;
+      }
+  }
+}
+
+@media screen and (min-width: 75rem) {
+  .wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 30.1875rem max-width);
+    grid-auto-flow: column;
+      .card-section{
+        height: 100vh;
+        max-width: 30.1875rem;
+          .front{
+            top: calc(11.6875rem - 7vh);
+            left: 10.25rem;
+          }
+          .back{
+            left: 16.125rem;
+            top: calc(29.375rem - 7vh);
+          }
+      }
+      .form-section{
+        padding: 0;
+          .form-box{
+            max-width: 23.8125rem;
+            padding-inline: auto;
+            display: flex;
+            input{
+              position: relative;
+                &:focus,
+                &:focus-visible{
+                  border: 1px solid #6448fe;
+                  cursor: pointer;
+                }
+            }
+
+            .date-cvc{
+              justify-content: center;
+              gap: 1.25rem;
+                .month-year{
+                  gap: 10px;
+                    & input{
+                      width: 5rem;
+                    }
+                }
+            }
+
+          }
+
+          .confirm-box{
+            display: none;
+            width: 23.8125rem;
+          }
+
+          button{
+            max-width: 23.8125rem;
+            cursor: pointer;
+          }
+      }
+  }
+}

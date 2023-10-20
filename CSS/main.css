@@ -1,0 +1,385 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+span {
+  display: block;
+  transition: all 0.3s linear;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  display: block;
+  font-size: initial;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-section {
+  height: 15rem;
+  background: url("../ASSETS/bg-main-mobile.png") no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.card-section .card {
+  width: 17.8125rem;
+  height: 9.8125rem;
+  position: absolute;
+  border-radius: 6px;
+}
+.card-section .front {
+  background: url("../ASSETS/bg-card-front.png") no-repeat;
+  background-size: cover;
+  z-index: 2;
+  top: 7.875rem;
+  left: 1rem;
+  padding: 1.125rem 1.25rem 1.25rem 1.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  filter: drop-shadow(0px 39px 60px rgba(0, 0, 0, 0.14));
+}
+.card-section .front img {
+  width: 3.375rem;
+}
+.card-section .front .box-numbers {
+  margin-block: auto 1rem;
+  font-size: 1.125rem;
+  color: rgb(255, 255, 255);
+  letter-spacing: 2.2px;
+}
+.card-section .front .box-name-date {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+}
+.card-section .front .box-name-date .card-name,
+.card-section .front .box-name-date .card-date {
+  font-size: 0.5625rem;
+  letter-spacing: 1.286px;
+}
+.card-section .back {
+  background: url("../ASSETS/bg-card-back.png") no-repeat;
+  background-size: cover;
+  top: 2.875em;
+  right: 1rem;
+  display: grid;
+  align-items: center;
+  justify-content: end;
+  padding-inline-end: 2.3125rem;
+  color: rgb(255, 255, 255);
+  font-size: 0.5625rem;
+}
+
+.form-section {
+  width: 100%;
+  height: 100%;
+  padding-block: 7.1875rem 2.8125rem;
+  padding-inline: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-block-end: 1.75rem;
+  /*  display: none; */
+}
+.form-section form .err {
+  display: block;
+  font-size: 0.75rem;
+  color: rgb(255, 80, 80);
+  letter-spacing: initial;
+}
+.form-section form label {
+  font-size: 0.75rem;
+  color: rgb(33, 9, 47);
+  letter-spacing: 2px;
+}
+.form-section form ::placeholder {
+  font-size: 1.125rem;
+  color: rgba(33, 9, 47, 0.25);
+}
+.form-section form input {
+  height: 2.8125rem;
+  border-radius: 8px;
+  border: 1px solid rgb(223, 222, 224);
+  padding-block: 0.6875rem;
+  padding-inline-start: 1rem;
+  width: 100%;
+  margin-block-start: 0.5625rem;
+  transition: all 0.3s linear;
+  position: relative;
+  display: inline-block;
+  margin-block-end: 8px;
+}
+.form-section form input:focus, .form-section form input:focus-visible {
+  border: 1px solid #6448fe;
+}
+.form-section form .date-cvc {
+  display: flex;
+  gap: 11px;
+}
+.form-section form .date-cvc .month-year {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.form-section form .date-cvc .month-year .err {
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+}
+.form-section .confirm-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.1875rem;
+  transition: all 0.3s linear;
+  margin-block-end: 3rem;
+  display: none;
+}
+.form-section .confirm-box img {
+  width: 5rem;
+  height: 5rem;
+}
+.form-section .confirm-box .confirm-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.form-section .confirm-box .confirm-text h2 {
+  font-size: 1.75rem;
+  color: rgb(33, 9, 47);
+}
+.form-section .confirm-box .confirm-text p {
+  font-size: 1.125rem;
+  color: rgb(143, 134, 148);
+}
+.form-section button {
+  background-color: rgb(33, 9, 47);
+  border-radius: 8px;
+  padding-block: 1rem;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  font-size: 1.125rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .card-section {
+    height: 40vh;
+    background: url("../ASSETS/bg-main-desktop.png") no-repeat;
+    background-size: cover;
+  }
+  .card-section .card {
+    width: 21.5625rem;
+    height: 13.5625rem;
+  }
+  .card-section .front {
+    top: calc(15rem + 5vh);
+    left: calc(2rem + 3vw);
+    background-position: center center;
+  }
+  .card-section .front .box-name-date .card-name,
+  .card-section .front .box-name-date .card-date {
+    font-size: 0.75rem;
+  }
+  .card-section .back {
+    top: 2.875em;
+    right: calc(2rem + 3vw);
+    font-size: 0.75rem;
+    padding-inline-end: 1rem;
+    background-position: center center;
+  }
+  .form-section {
+    padding-block: 10rem 2.8125rem;
+    padding-inline: 5rem;
+  }
+  .form-section .form-box {
+    width: 100%;
+  }
+  .form-section .form-box form {
+    margin-block-end: 2.5rem;
+  }
+  .form-section .form-box form .date-cvc {
+    gap: 1.125rem;
+  }
+}
+@media screen and (min-width: 62.375rem) {
+  .card-section .card {
+    width: 27.9375rem;
+    height: 15.3125rem;
+  }
+  .card-section .front {
+    padding: 1.75rem 2rem 1.65625rem 2rem;
+    top: calc(15rem + 10vh);
+    left: calc(2rem + 5vw);
+  }
+  .card-section .front img {
+    width: 5.25rem;
+  }
+  .card-section .front .box-numbers {
+    font-size: 1.75rem;
+    margin-block-end: 1.56rem;
+  }
+  .card-section .front .box-name-date .card-name,
+  .card-section .front .box-name-date .card-date {
+    font-size: 0.875rem;
+    letter-spacing: 1.286px;
+  }
+  .card-section .back {
+    padding-inline-end: 3.5625rem;
+    font-size: 0.875rem;
+    top: calc(2.875em + 2vh);
+    right: calc(2rem + 5vw);
+  }
+  .form-section {
+    padding-block: 12rem 2.8125rem;
+    padding-inline: 8rem;
+  }
+  .form-section .form-box {
+    width: 100%;
+  }
+  .form-section .form-box form {
+    margin-block-end: 2.5rem;
+    gap: 1.625rem;
+  }
+  .form-section .form-box form .date-cvc {
+    gap: 1.75rem;
+    justify-content: space-between;
+  }
+  .form-section .form-box form .date-cvc .month-year {
+    gap: 1.125rem;
+  }
+  .form-section button {
+    font-size: 1.125rem;
+  }
+}
+@media screen and (min-width: 75rem) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 30.1875rem max-width);
+    grid-auto-flow: column;
+  }
+  .wrapper .card-section {
+    height: 100vh;
+    max-width: 30.1875rem;
+  }
+  .wrapper .card-section .front {
+    top: calc(11.6875rem - 7vh);
+    left: 10.25rem;
+  }
+  .wrapper .card-section .back {
+    left: 16.125rem;
+    top: calc(29.375rem - 7vh);
+  }
+  .wrapper .form-section {
+    padding: 0;
+  }
+  .wrapper .form-section .form-box {
+    max-width: 23.8125rem;
+    padding-inline: auto;
+    display: flex;
+  }
+  .wrapper .form-section .form-box input {
+    position: relative;
+  }
+  .wrapper .form-section .form-box input:focus, .wrapper .form-section .form-box input:focus-visible {
+    border: 1px solid #6448fe;
+    cursor: pointer;
+  }
+  .wrapper .form-section .form-box .date-cvc {
+    justify-content: center;
+    gap: 1.25rem;
+  }
+  .wrapper .form-section .form-box .date-cvc .month-year {
+    gap: 10px;
+  }
+  .wrapper .form-section .form-box .date-cvc .month-year input {
+    width: 5rem;
+  }
+  .wrapper .form-section .confirm-box {
+    display: none;
+    width: 23.8125rem;
+  }
+  .wrapper .form-section button {
+    max-width: 23.8125rem;
+    cursor: pointer;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

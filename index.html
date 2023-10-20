@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="CSS/variables.css">
+  <link rel="stylesheet" href="CSS/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet"> 
+  <script src="JS/script.js" defer></script>
+</head>
+<body>
+  <main class="wrapper">
+    <section class="card-section">
+      <div class="front card">
+        <img src="ASSETS/card-logo.svg" alt="">
+        <div class="box-numbers">
+          <span class="card-numb">0000 0000 0000 0000</span>
+        </div>  
+        <div class="box-name-date">
+          <span class="card-name">JANE APPLESEED</span>
+          <span class="card-date">00/00</span>
+        </div>
+      </div>
+      <div class="back card">
+        <span class="card-cvc">000</span>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="form-box">
+        <form action="">
+          <div class="name">
+            <label for="name">CARDHOLDER NAME</label>
+            <input type="text" name="" id="name" placeholder="e.g. Jane Appleseed" required autocomplete="off">
+            <span class="err"></span>
+          </div>
+  
+          <div class="number">
+            <label for="numb">CARD NUMBER</label>
+            <input type="text" name="" id="numb" placeholder="e.g. 1234 5678 9123 0000" required maxlength="19" autocomplete="off">
+            <span class="err"></span>
+          </div>
+  
+          <div class="date-cvc">
+            <div>
+              <label for="date" class="date">EXP. DATE (MM/YY)
+                <div class="month-year">
+                    <input type="text" name="" id="date" placeholder="MM" required maxlength="2" autocomplete="off">
+                    <input type="text" name="" id="year" placeholder="YY" required maxlength="2" autocomplete="off">
+                    <span class="err"></span>
+                </div>
+              </label>
+            </div>
+            <div>
+              <label for="cvc">CVC</label>
+              <input type="text" name="" id="cvc" placeholder="e.g. 123" required maxlength="3" autocomplete="off">
+              <span class="err"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="confirm-box">
+        <img src="ASSETS/icon-complete.svg" alt="">
+        <div class="confirm-text">
+          <h2>THANK YOU!</h2>
+          <p>We’ve added your card details</p>
+        </div>
+      </div>
+      <button type="submit">Confirm</button>
+    </section>
+  </main>
+</body>
+</html>
