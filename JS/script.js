@@ -19,7 +19,10 @@ let checkName = false;
 let checkCvc = false
 let checkNumber = false;
 
-  inputArr.forEach((inp) => {
+btn.style.pointerEvents = 'none';
+  btn.style.opacity = '0.7'
+
+inputArr.forEach((inp) => {
   inp.addEventListener('input', (e) => {
     const parentInput = inp.parentElement;
     
@@ -39,7 +42,7 @@ let checkNumber = false;
         inputArr[3].style.borderColor = ''
        }
 
-      dateBox.lastElementChild.innerHTML = "can't be blank"
+      dateBox.lastElementChild.innerHTML = "required"
       date.innerHTML = `00/00`
       checkDate = false;
     } else if (!inputArr[2].value.match(/^\d+$/) || !inputArr[3].value.match(/^\d+$/)){
@@ -64,7 +67,7 @@ let checkNumber = false;
     //check nameHodler
     if (inputArr[0].value === '') {
       inputArr[0].style.borderColor = 'red'
-      inputArr[0].nextElementSibling.innerHTML = "can't be blank";
+      inputArr[0].nextElementSibling.innerHTML = "required";
       holder.innerHTML = `JANE APPLESEED`
       checkName = false;
 
@@ -84,14 +87,14 @@ let checkNumber = false;
     //check cvc
     if(inputArr[4].value === '') {
       inputArr[4].style.borderColor = 'red'
-      inputArr[4].nextElementSibling.innerHTML = "can't be blank"
+      inputArr[4].nextElementSibling.innerHTML = "required"
       cvc.innerHTML = `000`
-      checkCvc = false
+      checkCvc = false;
 
     } else if (!inputArr[4].value.match(/^\d+$/)){
       inputArr[4].nextElementSibling.innerHTML = "Wrong format, numbers only"
       inputArr[4].style.borderColor = 'red'
-      checkCvc = false
+      checkCvc = false;
 
     } else {
       inputArr[4].style.borderColor = ''
@@ -103,14 +106,14 @@ let checkNumber = false;
     //check numberCard
     if(inputArr[1].value === ''){
       inputArr[1].style.borderColor = 'red'
-      inputArr[1].nextElementSibling.innerHTML = "can't be blank"
+      inputArr[1].nextElementSibling.innerHTML = "required"
       numb.innerHTML = '0000 0000 0000 0000';
-      checkNumber = false
+      checkNumber = false;
 
     } else if (!inputArr[1].value.match(/^[0-9\s]*$/)){
       inputArr[1].style.borderColor = 'red'
       inputArr[1].nextElementSibling.innerHTML = "Wrong format, numbers only"
-      checkNumber = false
+      checkNumber = false;
 
     } else{
       inputArr[1].nextElementSibling.innerHTML = ""
@@ -119,20 +122,22 @@ let checkNumber = false;
       let check = inputNumb.match(/\d{4}/g);
       let checkString = check.join(" ")
       numb.innerHTML = checkString;
-      checkNumber = true
+      checkNumber = true;
     }
   })
 }) 
 
-btn.addEventListener('click', () => {
-  if(checkName && checkDate && checkNumber && checkCvc){
-    form.style.display = 'none'
-    confirmBox.style.display = 'flex'
-    setTimeout(confirm, 3000)
-  }
 
-  function confirm () {
-    confirmBox.style.display = 'none'
-    form.style.display = 'flex'
-  }
-})
+
+  btn.addEventListener('click', () => {
+    if(checkName && checkDate && checkNumber && checkCvc){
+      form.style.display = 'none'
+      confirmBox.style.display = 'flex'
+      setTimeout(confirm, 1500)
+    }
+  
+    function confirm () {
+      confirmBox.style.display = 'none'
+      form.style.display = 'flex'
+    }
+  })
